@@ -18,7 +18,7 @@ import { PurchasesResolver } from './graphql/resolvers/purchases.resolver';
     DatabaseModule,
     GraphQLModule.forRoot({
       driver: ApolloDriver,
-      autoSchemaFile: path.resolve(process.cwd(), 'src/schema.gql'),
+      autoSchemaFile: path.resolve(process.cwd(), '../schema.gql'),
     }),
   ],
   providers: [

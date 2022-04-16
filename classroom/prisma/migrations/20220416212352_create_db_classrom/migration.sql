@@ -1,6 +1,12 @@
--- AlterTable
-ALTER TABLE "Student" ADD COLUMN     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-ADD COLUMN     "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP;
+-- CreateTable
+CREATE TABLE "Student" (
+    "id" TEXT NOT NULL,
+    "authUserId" TEXT,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "Student_pkey" PRIMARY KEY ("id")
+);
 
 -- CreateTable
 CREATE TABLE "Course" (
@@ -24,6 +30,9 @@ CREATE TABLE "Enrollment" (
 
     CONSTRAINT "Enrollment_pkey" PRIMARY KEY ("id")
 );
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Student_authUserId_key" ON "Student"("authUserId");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Course_slug_key" ON "Course"("slug");

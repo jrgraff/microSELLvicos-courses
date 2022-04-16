@@ -4,8 +4,13 @@ import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
 import path from 'node:path';
 
+import { EnrollmentsService } from '../services/enrollments.service';
+import { StudentsService } from '../services/students.service';
+import { CoursesService } from '../services/courses.service';
 import { DatabaseModule } from '../database/database.module';
-import { TestResolver } from './auth/test.resolver';
+import { EnrollmentsResolver } from './graphql/resolvers/enrollments.resolver';
+import { StudentsResolver } from './graphql/resolvers/students.resolver';
+import { CoursesResolver } from './graphql/resolvers/courses.resolver';
 
 @Module({
   imports: [
@@ -13,9 +18,17 @@ import { TestResolver } from './auth/test.resolver';
     DatabaseModule,
     GraphQLModule.forRoot({
       driver: ApolloDriver,
-      autoSchemaFile: path.resolve(process.cwd(), 'src/schema.gql'),
+      autoSchemaFile: path.resolve(process.cwd(), '../schema.gql'),
     }),
   ],
-  providers: [TestResolver],
+  providers: [
+    CoursesResolver,
+    EnrollmentsResolver,
+    StudentsResolver,
+
+    CoursesService,
+    EnrollmentsService,
+    StudentsService,
+  ],
 })
 export class HttpModule {}
