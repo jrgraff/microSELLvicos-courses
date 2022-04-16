@@ -6,7 +6,6 @@ import { PurchasesService } from '../../../services/purchases.service';
 import { AuthorizationGuard } from '../../auth/authorization.guard';
 import { AuthUser, CurrentUser } from '../../auth/current-user';
 import { Customer } from '../models/customer';
-import { Purchase } from '../models/purchase';
 
 @Resolver(() => Customer)
 export class CustomersResolver {
