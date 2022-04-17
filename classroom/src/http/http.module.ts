@@ -18,7 +18,7 @@ import { CoursesResolver } from './graphql/resolvers/courses.resolver';
     DatabaseModule,
     GraphQLModule.forRoot({
       driver: ApolloDriver,
-      autoSchemaFile: path.resolve(process.cwd(), '../schema.gql'),
+      autoSchemaFile: path.resolve(process.cwd(), 'src/schema.gql'),
     }),
   ],
   providers: [
