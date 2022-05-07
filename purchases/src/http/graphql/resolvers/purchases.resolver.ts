@@ -8,8 +8,8 @@ import {
   Resolver,
 } from '@nestjs/graphql';
 import { CustomersService } from '../../../services/customers.service';
-
 import { ProductsService } from '../../../services/products.service';
+
 import { PurchasesService } from '../../../services/purchases.service';
 import { AuthorizationGuard } from '../../auth/authorization.guard';
 import { AuthUser, CurrentUser } from '../../auth/current-user';
@@ -38,8 +38,7 @@ export class PurchasesResolver {
   @Mutation(() => Purchase)
   @UseGuards(AuthorizationGuard)
   async createPurchase(
-    @Args('data')
-    data: CreatePurchaseInput,
+    @Args('data') data: CreatePurchaseInput,
     @CurrentUser() user: AuthUser,
   ) {
     let customer = await this.customersService.getCustomerByAuthUserId(

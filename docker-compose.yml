@@ -1,18 +1,18 @@
-version: "3"
+version: '3'
 
 services:
   # Application
 
   database:
-    image: "bitnami/postgresql"
+    image: 'bitnami/postgresql'
     ports:
-      - "5432:5432"
+      - '5432:5432'
     environment:
       - POSTGRESQL_USERNAME=docker
       - POSTGRESQL_PASSWORD=docker
       - POSTGRESQL_DATABASE=app
     volumes:
-      - "postgresql_data:/bitnami/postgresql"
+      - 'postgresql_data:/bitnami/postgresql'
 
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
@@ -50,3 +50,4 @@ services:
 volumes:
   postgresql_data:
     driver: local
+

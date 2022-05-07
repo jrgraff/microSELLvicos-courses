@@ -20,13 +20,13 @@ type Product {
 
 type Purchase {
   id: ID!
-  status: PurchasesStatus!
+  status: PurchaseStatus!
   createdAt: DateTime!
   product: Product!
 }
 
 """Available purchase statuses"""
-enum PurchasesStatus {
+enum PurchaseStatus {
   PENDING
   APPROVED
   FAILED

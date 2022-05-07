@@ -6,9 +6,9 @@ import {
   Resolver,
   ResolveReference,
 } from '@nestjs/graphql';
-
 import { CustomersService } from '../../../services/customers.service';
 import { PurchasesService } from '../../../services/purchases.service';
+
 import { AuthorizationGuard } from '../../auth/authorization.guard';
 import { AuthUser, CurrentUser } from '../../auth/current-user';
 import { Customer } from '../models/customer';
@@ -20,8 +20,8 @@ export class CustomersResolver {
     private purchasesService: PurchasesService,
   ) {}
 
-  @Query(() => Customer)
   @UseGuards(AuthorizationGuard)
+  @Query(() => Customer)
   me(@CurrentUser() user: AuthUser) {
     return this.customersService.getCustomerByAuthUserId(user.sub);
   }

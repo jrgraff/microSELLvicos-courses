@@ -8,7 +8,7 @@ enum PurchaseStatus {
 }
 
 registerEnumType(PurchaseStatus, {
-  name: 'PurchasesStatus',
+  name: 'PurchaseStatus',
   description: 'Available purchase statuses',
 });
 

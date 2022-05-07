@@ -10,17 +10,17 @@ interface CreateCustomerParams {
 export class CustomersService {
   constructor(private prisma: PrismaService) {}
 
-  async createCustomer({ authUserId }: CreateCustomerParams) {
-    return this.prisma.customer.create({
-      data: {
+  getCustomerByAuthUserId(authUserId: string) {
+    return this.prisma.customer.findUnique({
+      where: {
         authUserId,
       },
     });
   }
 
-  getCustomerByAuthUserId(authUserId: string) {
-    return this.prisma.customer.findUnique({
-      where: {
+  async createCustomer({ authUserId }: CreateCustomerParams) {
+    return this.prisma.customer.create({
+      data: {
         authUserId,
       },
     });

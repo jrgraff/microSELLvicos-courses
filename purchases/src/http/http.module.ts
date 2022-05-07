@@ -27,10 +27,12 @@ import { PurchasesResolver } from './graphql/resolvers/purchases.resolver';
     }),
   ],
   providers: [
+    // Resolvers
     ProductsResolver,
     PurchasesResolver,
     CustomersResolver,
 
+    // Services
     ProductsService,
     PurchasesService,
     CustomersService,
