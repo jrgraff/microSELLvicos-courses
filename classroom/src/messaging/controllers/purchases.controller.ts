@@ -1,21 +1,20 @@
 import { Controller } from '@nestjs/common';
 import { EventPattern, Payload } from '@nestjs/microservices';
-
 import { CoursesService } from '../../services/courses.service';
 import { EnrollmentsService } from '../../services/enrollments.service';
 import { StudentsService } from '../../services/students.service';
 
-interface Customer {
+export interface Customer {
   authUserId: string;
 }
 
-interface Product {
+export interface Product {
   id: string;
   title: string;
   slug: string;
 }
 
-interface PurchaseCreatedPayload {
+export interface PurchaseCreatedPayload {
   customer: Customer;
   product: Product;
 }
